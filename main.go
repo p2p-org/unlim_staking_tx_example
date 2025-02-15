@@ -34,7 +34,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	pk, err := crypto.HexToECDSA("a577c6b89c9cfea82ebedc485e388571c9002cc8aab41c9e9616775561e293d2") // Insert your private key here in hex format without 0x prefix
+	pk, err := crypto.HexToECDSA("a577...") // Insert your private key here in hex format without 0x prefix
 	if err != nil {
 		log.Fatal(err)
 	}
