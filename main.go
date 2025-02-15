@@ -34,7 +34,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	pk, err := crypto.HexToECDSA("a57...") // Insert your private key here in hex format without 0x prefix
+	pk, err := crypto.HexToECDSA("a577c6b89c9cfea82ebedc485e388571c9002cc8aab41c9e9616775561e293d2") // Insert your private key here in hex format without 0x prefix
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,7 +60,7 @@ func main() {
 		txOpts,
 		withdrawalCreds,
 		GweiToWei(uint64(EthToGwei(32))),
-		clientAddress,
+		common.HexToAddress("0x6c882B6bffe33e9D1abBE0afAa6b070F4308EB66"),
 		directstakingv3.FeeRecipient{
 			BasisPoints: big.NewInt(9500),
 			Recipient:   clientAddress,
@@ -99,5 +99,5 @@ func WeiToGwei(wei *big.Int) uint64 {
 
 func WeiFromETHString(eth string) *big.Int {
 	amount, _ := new(big.Int).SetString(eth, 10)
-	return big.NewInt(0).Mul(amount, big.NewInt(0).Exp(big.NewInt(10), big.NewInt(18), nil))
+	return new(big.Int).Mul(amount, new(big.Int).Exp(big.NewInt(10), big.NewInt(18), nil))
 }
